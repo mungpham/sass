@@ -1,0 +1,28 @@
+/*
+ * Typography
+ */
+// @font-face {
+// 	font-family: 'A1MinchoStd-Bold';
+// 	src: url('../fonts/A1MinchoStd-Bold.eot'); /* IE9 Compat Modes */
+// 	src: url('../fonts/A1MinchoStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+// 	   // url('../fonts/A1MinchoStd-Bold-AlphaNum.woff2') format('woff2'), /* Super Modern Browsers */
+// 	   url('../fonts/A1MinchoStd-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+// 	   url('../fonts/A1MinchoStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+// 	   url('../fonts/A1MinchoStd-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+// }
+
+h1, h2, h3, h4, h5, h6 { font-family: $heading-font-family; font-weight: $heading-font-weight; }
+h1, h2 { line-height: 5rem; color: $heading-color; }
+h3, h4 { line-height: 2.2rem; color: $heading-color; }
+h1,h2 { 
+	font-size: 3rem;
+}
+
+h3 { 
+	font-size: 2.4rem;
+}
+
+.block-margins { margin: 1em 0; }
+
+.unordered-list { list-style-type: disc; }
+.ordered-list { list-style: decimal; }

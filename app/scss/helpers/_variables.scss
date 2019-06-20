@@ -1,0 +1,53 @@
+/*
+ * Variables
+ */
+$text-color: #746A63;
+$loud-color: #fff;
+$menu-color: #746A63;
+
+$hr-border-width: 2px 0 0 0;
+
+$link-color: #746A63;
+$link-hover-color: #746A63;
+$link-visited-color: #746A63;
+
+$global-font-size: 10px; //font-size: 62.5%;  16em = 16rem = 16px /* Mac dinh ve gia tri 10px */
+$global-font-size-sp: 9px; //font-size: 62.5%;  16em = 16rem = 16px /* Mac dinh ve gia tri 10px */
+$base-font-family:  "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+$base-font-size: 1.4rem; // 16em = 16rem = 16px
+$base-line-height: 2.4rem;
+$base-font-weight: 400;
+
+// $fixed-font-family: 'Andale Mono', AndaleMono, monospace;
+// $fixed-font-size: 15px;
+// $fixed-line-height: 1.2;
+
+$heading-font-family:  "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+$heading-special-font-family: 'Roboto', sans-serif;
+$heading-font-weight: 400;
+$heading-color: #746A63;
+
+$body-bg: transparent;
+$container-width: 1130px;
+$full-width: 100%;
+
+//boder
+$base-boder-color: #000;
+$radius: 1.2rem;
+
+//buttom
+$btn-font-size: 1.4rem;
+$brand-primary: #ff9701;
+$brand-primary-bg: transparent;
+
+
+// font-weight
+$thin: 100;
+$extraLight: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+$extraBold: 800;
+$black: 900;

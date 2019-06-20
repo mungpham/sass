@@ -1,0 +1,29 @@
+.navbar {
+	padding-top: 3rem;
+	margin: 0;
+	ul {
+		li {
+			a {
+				padding: 0 1rem;
+				display: block;
+				font-size: 1.4rem;
+				line-height: 2.4rem;
+				color: $menu-color;
+				font-family: 'Roboto';
+				@include transition(all 400ms ease-in-out);
+				&:focus {
+					background: none !important;
+				}
+				&:visited {
+				  	background: none !important;
+				}
+			}
+			&:hover {
+				a {
+					background: none !important;
+					opacity: 0.3;
+				}
+			}
+		}
+	}
+}

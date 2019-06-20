@@ -1,0 +1,256 @@
+/*
+* mixins
+*/
+// Push auto
+@mixin push--auto {
+    margin: { 
+    left: auto;
+    right: auto;
+    }
+}
+//Responsive ratio width height co gian theo ti le (content o trong)
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color 
+/// @param {Length} $size [1em] - Triangle size
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+    @if not index(top right bottom left, $direction) {
+        @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+    }
+
+    width: 0;
+    height: 0;
+    content: '';
+    z-index: 2;
+    border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+
+    $perpendicular-borders: $size solid transparent;
+
+    @if $direction == top or $direction == bottom {
+        border-left:   $perpendicular-borders;
+        border-right:  $perpendicular-borders;
+    } @else if $direction == right or $direction == left {
+        border-bottom: $perpendicular-borders;
+        border-top:    $perpendicular-borders;
+    }
+}
+// .foo::before {
+//   @include triangle(bottom);
+//   position: absolute;
+//   left: 50%;
+//   bottom: 100%;
+// }
+//Font styles
+@mixin font-styles($size: false, $colour: false, $weight: false,  $lh: false) {
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+//Placeholders
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+// textarea {  
+//     @include input-placeholder {
+//         color: $grey;
+//     }
+// }
+//Truncate(...)
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+//a.link
+@mixin linx ($link, $visit, $hover, $active) {
+    a {
+        color: $link;
+        &:visited {
+            color: $visit;
+        }
+        &:hover {
+            color: $hover;   
+        }
+        &:active {
+            color: $active;
+        }
+    }
+}
+@mixin img {
+    img {
+        vertical-align: top;
+        border: none;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@mixin transform-style($style) {
+    transform-style: $style;
+    -moz-transform-style: $style;
+    -o-transform-style: $style;
+    -ms-transform-style: $style;
+    -webkit-transform-style: $style;
+}
+@mixin transition($time) {
+    transition: $time;
+    -webkit-transition: $time;
+    -moz-transition: $time;
+    -o-transition: $time;
+}
+@mixin centeringPercentageWidthHeightElements {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    webkit-transform: translate(-50%,-50%);
+    -khtml-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+@mixin img_block_product {
+    img {
+        height: auto;
+        max-height: none;
+        max-width: none;
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+        z-index: 1;
+       @include centeringPercentageWidthHeightElements;
+    }
+}
+@mixin hover-color($color) {
+    &:hover {
+        color: $color;
+    }
+}
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+//boder
+@mixin basehr($color, $border-width) {
+    hr {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: $color -moz-use-text-color -moz-use-text-color;
+        border-image: none;
+        border-style: solid none none;
+        border-width: $border-width;
+        margin: 0;
+    }
+}
+@mixin rounded-corner($arc) {
+    -moz-border-radius: $arc;
+    -webkit-border-radius: $arc;
+    border-radius: $arc;  
+}
+@mixin  btn-background($btn-background) {
+    background-color: $btn-background;
+    &:hover {
+        background-color: lighten($btn-background,10%);
+    }
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin title-blog {
+    text-align: center;
+    margin: $margin-title-h1;
+}
+@mixin padding_block {
+    padding: 20px 0 50px;
+}
+@mixin padding_block_notitle {
+    padding: 50px 0 50px;
+}
+@mixin flex-center-colum {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/////
+
+@mixin breakpoint($point){
+
+    @if ($point == lg){
+        @media (min-width: 1200px){ @content }
+    }
+
+    @if ($point == lgmin){
+        @media (min-width: 1200px){ @content }
+    }
+
+    @else if ($point == md){
+        @media (min-width: 992px) and (max-width: 1199px){ @content }
+    }
+
+    @else if ($point == mdmin){
+        @media (min-width: 992px){ @content }
+    }
+
+    @else if ($point == sm){
+        @media (min-width: 768px) and (max-width: 991px){ @content }
+    }
+
+    @else if ($point == smmin){
+        @media (min-width: 768px){ @content }
+    }
+
+    @else if ($point == xs){
+        @media (max-width: 767px) and (min-width: 641px){ @content }
+    }
+
+    @else if ($point == xsmin){
+        @media (max-width: 767px){ @content }
+    }
+
+    @else if ($point == xxs){
+        @media (max-width: 640px) and (min-width: 481px){ @content }
+    }
+
+    @else if ($point == xxsmin){
+        @media (max-width: 640px){ @content }
+    }
+
+
+    @else if ($point == xxxs){
+        @media  (max-width: 480px){ @content }
+    }
+
+}
+//.class  {
+//  @include breakpoint(sm){
+//    width: 60%;
+//  }
+//}

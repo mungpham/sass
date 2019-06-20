@@ -1,0 +1,38 @@
+/* Vendors - include bootrap
+========================================================================== */
+@import "vendors/bootstrap";
+
+/* Helpers - helpers Variable file along with starting point Mixins and Placeholders.
+========================================================================== */
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/placeholders";
+ 
+/* Base - reset and typography.
+========================================================================== */
+@import "base/reset";
+@import "base/typography";
+
+/* Components - Re-usable site elements.
+========================================================================== */ 
+@import "components/buttons";
+@import "components/navigation";
+@import "components/dropdown";
+@import "components/carousel.scss";
+ 
+/* Layout - Structure and layout files.
+========================================================================== */
+@import "layout/common";
+@import "layout/header";
+@import "layout/main";
+@import "layout/footer";
+ 
+ 
+// Themes
+// @import "themes/theme";
+// @import "themes/admin";
+
+/* layout - Responsive .
+========================================================================== */ 
+@import "layout/breakpoint";

@@ -1,0 +1,51 @@
+/* -------------------->>> COMMON <<<-------------------- */
+html {
+    font-size: $global-font-size; //font-size: 62.5%; /* Mac dinh ve gia tri 10px */
+}
+
+body {
+    background: $body-bg;
+    font-family: $base-font-family;
+    color: $text-color;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    overflow-x: hidden;
+    font-weight: $base-font-weight;
+    letter-spacing: 0.75px;
+}
+
+@include basehr($base-boder-color, $hr-border-width);
+
+.container {
+    width: 100%;
+    max-width: $container-width;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
+a {
+    img {
+        @include transition(all 400ms ease-in-out);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}

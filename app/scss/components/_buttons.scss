@@ -1,0 +1,26 @@
+a {
+	color: $link-color;
+	&:focus {
+		outline: none;
+	}
+}
+a:link {
+	text-decoration: none;
+}
+a {
+	color: $link-color;
+	&:visited {
+	  color: $link-visited-color;
+	}
+
+	&:hover, &:visited:hover {
+	  color: $link-hover-color;
+	  opacity: 0.3;
+	}
+}
+
+
+.italic { font-style: italic; }
+.bold   { font-weight: 700; }
+
+/** moreBox animated **/
